@@ -590,7 +590,6 @@
     "shim": "String_::concat",
     "weight": 80,
     "blockId": "string_concat",
-    "block": "join %this=text|%other",
     "blockNamespace": "text",
     "paramHelp": {
      "other": "The string to append to the end of the string."
@@ -769,7 +768,6 @@
     "_source": null,
     "shim": "String_::isEmpty",
     "blockId": "string_isempty",
-    "block": "%this=text| is empty",
     "blockNamespace": "text",
     "paramHelp": {},
     "jsDoc": "Returns a value indicating if the string is empty",
