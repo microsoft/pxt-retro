@@ -1,0 +1,59 @@
+{
+    "id": "retro",
+    "name": "Retro",
+    "title": "Retro",
+    "corepkg": "core",
+    "cloud": {
+        "workspace": false,
+        "packages": false
+    },
+    "bundleddirs": [
+        "libs/core"
+    ],
+    "runtime": {
+      "mathBlocks": false,
+      "loopsBlocks": false,
+      "logicBlocks": false,
+      "variablesBlocks": false,
+      "textBlocks": false,
+      "listsBlocks": false,
+      "onStartColor": "#D83B01",
+      "onStartNamespace": "control",
+      "onStartWeight": 54
+    },
+    "simulator": {
+        "autoRun": true,
+       "aspectRatio": 1.0
+    },
+    "appTheme": {
+        "logoUrl": "https://retro.pxt.io/",
+        "homeUrl": "https://retro.pxt.io/",
+        "embedUrl": "https://retro.pxt.io/",
+        "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
+        "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
+        "docMenu": [
+            {
+                "name": "About",
+                "path": "/about"
+            },
+            {
+                "name": "Docs",
+                "path": "/docs"
+            }
+        ],
+        "monacoToolbox": true,
+        "invertedMenu": true,
+        "invertedToolbox": true,
+        "invertedMonaco": true,
+        "blocklyOptions": { 
+            "grid": {
+                "spacing": 45,
+                "length": 7,
+                "colour": "rgba(40,181,0, 0.30)",
+                "snap": true
+            }
+        },
+        "simAnimationEnter": "rotate in",
+        "simAnimationExit": "rotate out"
+    }
+}
