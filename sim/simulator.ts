@@ -1,19 +1,6 @@
 /// <reference path="../node_modules/pxt-core/typings/globals/bluebird/index.d.ts"/>
 /// <reference path="../node_modules/pxt-core/built/pxtsim.d.ts"/>
 
-// TODO:
-// - Thumb condition codes 
-// - bound checking in simulator (memory accesses and branches)
-// - 
-// - compiler check plug-in (check for labels)
-//   - create array of lbls, for mapping to continuation
-//   - no duplicate labels
-//   - missing labels
-// For later
-// - no transition to Monaco (Sam - we will use thumb as experiment for embedding)
-// - Blockly validator for value ranges (Sam)
-// - generate Thumb ASM and binary encoding of instructions (via our assembler???)
-
 namespace pxsim {
 
     initCurrentRuntime = () => {
@@ -81,14 +68,12 @@ namespace pxsim {
             this.registerCells = [];
             this.initRegisters();
 
-            this.processor = new ProcessorState(256,8)
+            this.processor = new ProcessorState(64,8)
         }
 
         checkBranchLabels() {
             for(let lbl of this.branchLabels) {
-                if (this.labels.indexOf(lbl) == -1) {
-                    // TODO: raise an error
-                }
+                U.assert(this.labels.indexOf(lbl) != -1, "Label " + lbl + " is referenced but not include in program.")
             }
         }
 
@@ -108,22 +93,21 @@ namespace pxsim {
             }
         }
 
-        // 256 words of memory
+        // 64 words (4 bytes) of memory
         private initMemory() {
             let header = this.memory.insertRow(-1)
-            for(let h = 0; h<16; h++) {
+            for(let h = 0; h<4; h++) {
                 let c = header.insertCell(-1)
-                c.innerText = h.toString()
+                c.innerText = (h*4).toString()
             }
             for(let row = 0; row<16; row++) {
                 let r = this.memory.insertRow(-1)
                 this.memory.appendChild(r)
-                for(let col = 0; col<16; col++) {
+                for(let col = 0; col<4; col++) {
                     let c = r.insertCell(-1)
                     r.appendChild(c)
                     this.memoryCells.push(c)
-                    c.innerText = "00"
-                    c.setAttribute("memory","00000000")
+                    c.innerText = "00000000"
                 }
             }
         }
@@ -151,15 +135,10 @@ namespace pxsim {
             return zeroStr + str;
         }
 
-        private convertIntToHexRgb(n: number) {
-            // TODO: for memory
-        }
-
         private ensureRange(n: number, top: number) {
             n = Math.floor(n)
-            if (0<=n && n<top)
-                return n
-            return undefined
+            U.assert(0<=n && n<top, n.toString() + " is outside of range [ 0, " + top.toString() + "]")
+            return n
         }
 
         // TODO: setting condition codes based on sign bits, overflow, etc.
@@ -174,24 +153,20 @@ namespace pxsim {
         subRegister(Rd:Register, Offset8: number) {
             if (this.phase == Phase.Execution) {
                 let n = this.ensureRange(Offset8, 256)
-                if (n) {
-                    // convert to 2's complement
-                    n = UPPER - n
-                    let res = this.overflow(this.processor.registers[Rd] + n)
-                    this.processor.registers[Rd] = res
-                    this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
-                }
+                // convert to 2's complement
+                n = UPPER - n
+                let res = this.overflow(this.processor.registers[Rd] + n)
+                this.processor.registers[Rd] = res
+                this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
             }
         }
 
         addRegister(Rd:Register, Offset8: number) {
             if (this.phase == Phase.Execution) {
                 let n = this.ensureRange(Offset8, 256)
-                if (n) {
-                    let res = this.overflow(this.processor.registers[Rd] + n)
-                    this.processor.registers[Rd] = res
-                    this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
-                }
+                let res = this.overflow(this.processor.registers[Rd] + n)
+                this.processor.registers[Rd] = res
+                this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
             }
         }
 
@@ -242,16 +217,16 @@ namespace pxsim {
             if (this.phase == Phase.Execution) {
                 // validators will ensure, but let's enforce anyway
                 let n = this.ensureRange(Offset8, 256)
-                if (n) {
-                    this.processor.registers[Rd] = n
-                    this.registerCells[Rd].innerText = this.convertIntTo32bitHex(n)
-                }
+                this.processor.registers[Rd] = n
+                this.registerCells[Rd].innerText = this.convertIntTo32bitHex(n)
             }
         }
 
         loadRegister(Rd: Register, Rb: Register) {
             if (this.phase == Phase.Execution) {
                 let addr = this.ensureRange(this.processor.registers[Rb], 256)
+                U.assert(addr/4 - Math.floor(addr/4) == 0, "unaligned address (must be a multiple of 4)");
+                addr = addr >> 2
                 let res = this.processor.registers[Rd] = this.processor.memory[addr]
                 this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
             }
@@ -260,8 +235,11 @@ namespace pxsim {
         storeRegister(Rd: Register, Rb: Register) {
             if (this.phase == Phase.Execution) {
                 let addr = this.ensureRange(this.processor.registers[Rb], 256)
-                this.processor.memory[addr] = this.processor.registers[Rd]
-                // TODO: encoding for memory
+                U.assert(addr/4 - Math.floor(addr/4) == 0, "unaligned address (must be a multiple of 4)");
+                let res = this.processor.registers[Rd]
+                addr = addr >> 2
+                this.processor.memory[addr]
+                this.memoryCells[addr].innerText = this.convertIntTo32bitHex(res)
             }
         }
 
@@ -273,12 +251,9 @@ namespace pxsim {
 
         setLabel(lbl: Label) {
             if (this.phase == Phase.Analysis) {
-                if (this.labels.indexOf(lbl) != -1 ) {
-                    // TODO: raise error - duplicate label
-                } else {
-                    this.labels.push(lbl)
-                    this.asyncContinuations.push(lbl)
-                }
+                U.assert(this.labels.indexOf(lbl) == -1, "Label L" + (lbl+1).toString() + " is included twice in program.")  
+                this.labels.push(lbl)
+                this.asyncContinuations.push(lbl)
             } 
             let cb = getResume()
             cb(() => {})
@@ -291,7 +266,7 @@ namespace pxsim {
             // find the continuation from runtime
             let entry =  <any>runtime.entry
             let continuations: number[] = <number[]>entry.continuations
-            U.assert(continuations.length>index)
+            U.assert(continuations.length>index, "Internal error: branchToLabel")
             runtime.overwriteResume(continuations[index])
             let cb = getResume()
             cb(() => {})
