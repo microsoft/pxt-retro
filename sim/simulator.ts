@@ -13,7 +13,6 @@ namespace pxsim {
         let oldRun = runtime.run
         runtime.run = (cb: ResumeFn) => { 
             oldRun(cb)
-            myBoard.checkBranchLabels()
             myBoard.phase = Phase.Execution
             runtime.setRunning(false)
             oldRun(cb)
@@ -45,10 +44,10 @@ namespace pxsim {
     export class Board extends pxsim.BaseBoard {
         phase = Phase.Analysis; 
         memory : HTMLTableElement;
-        memoryCells : HTMLTableCellElement[];
+        memoryCells : HTMLTableCellElement[] = [];
         
         registers : HTMLTableElement;
-        registerCells : HTMLTableCellElement[];
+        registerCells : HTMLTableCellElement[] = [];
         
         processor : ProcessorState;
         labels: Label[] = []
@@ -57,34 +56,29 @@ namespace pxsim {
         
         constructor() {
             super();
-        
-            this.memory = <HTMLTableElement>document.getElementById('memorystate');
-            this.memory.innerHTML = ""
-            this.memoryCells = [];
-            this.initMemory();
 
             this.registers = <HTMLTableElement>document.getElementById('registerstate');
             this.registers.innerHTML = ""
-            this.registerCells = [];
             this.initRegisters();
+
+            this.memory = <HTMLTableElement>document.getElementById('memorystate');
+            this.memory.innerHTML = ""
+            this.initMemory();
 
             this.processor = new ProcessorState(64,8)
         }
 
-        checkBranchLabels() {
-            for(let lbl of this.branchLabels) {
-                U.assert(this.labels.indexOf(lbl) != -1, "Label " + lbl + " is referenced but not include in program.")
-            }
-        }
-
         // 8 registers
         private initRegisters() {
+            let header = this.registers.insertRow()
+            let title = header.insertCell()
+            title.innerText = "Registers"
             let reg = 0;
             for(let row = 0; row < 2; row++) {
                 let r = this.registers.insertRow(-1)
                 for(let col = 0; col < 4; col++) {
-                    let name = r.insertCell(-1)
-                    let val = r.insertCell(-1)
+                    let name = r.insertCell()
+                    let val = r.insertCell()
                     name.innerText = "R" + reg.toString()
                     val.innerText = "00000000"
                     this.registerCells.push(val)
@@ -95,19 +89,17 @@ namespace pxsim {
 
         // 64 words (4 bytes) of memory
         private initMemory() {
-            let header = this.memory.insertRow(-1)
-            for(let h = 0; h<4; h++) {
-                let c = header.insertCell(-1)
-                c.innerText = (h*4).toString()
-            }
+            let header = this.memory.insertRow()
+            let title = header.insertCell()
+            title.innerText = "Memory"
             for(let row = 0; row<16; row++) {
-                let r = this.memory.insertRow(-1)
-                this.memory.appendChild(r)
+                let r = this.memory.insertRow()
                 for(let col = 0; col<4; col++) {
-                    let c = r.insertCell(-1)
-                    r.appendChild(c)
-                    this.memoryCells.push(c)
-                    c.innerText = "00000000"
+                    let name = r.insertCell()
+                    name.innerText = this.convertIntTo32bitHex((row*16)+(col*4),2)
+                    let val = r.insertCell()
+                    this.memoryCells.push(val)
+                    val.innerText = "00000000"
                 }
             }
         }
@@ -127,7 +119,7 @@ namespace pxsim {
         }
 
         private convertIntTo32bitHex(n: number, length = 8) {
-            U.assert(0<=n && n < UPPER)
+            U.assert(0<=n && n < Math.pow(16,length))
             let str = n.toString(16).toUpperCase()
             let zeros = length - str.length
             let zeroStr = ""
@@ -222,11 +214,15 @@ namespace pxsim {
             }
         }
 
+        private checkAddr(addr: number): number {
+            U.assert(0 <= addr && addr < 256, "address " + addr.toString() + " is out of range [0,255]")
+            U.assert(addr/4 - Math.floor(addr/4) == 0, "unaligned address (must be a multiple of 4)");
+            return addr >> 2
+        }
+
         loadRegister(Rd: Register, Rb: Register) {
             if (this.phase == Phase.Execution) {
-                let addr = this.ensureRange(this.processor.registers[Rb], 256)
-                U.assert(addr/4 - Math.floor(addr/4) == 0, "unaligned address (must be a multiple of 4)");
-                addr = addr >> 2
+                let addr = this.checkAddr(this.processor.registers[Rb])
                 let res = this.processor.registers[Rd] = this.processor.memory[addr]
                 this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
             }
@@ -234,10 +230,8 @@ namespace pxsim {
 
         storeRegister(Rd: Register, Rb: Register) {
             if (this.phase == Phase.Execution) {
-                let addr = this.ensureRange(this.processor.registers[Rb], 256)
-                U.assert(addr/4 - Math.floor(addr/4) == 0, "unaligned address (must be a multiple of 4)");
+                let addr = this.checkAddr(this.processor.registers[Rb])
                 let res = this.processor.registers[Rd]
-                addr = addr >> 2
                 this.processor.memory[addr]
                 this.memoryCells[addr].innerText = this.convertIntTo32bitHex(res)
             }
@@ -262,7 +256,7 @@ namespace pxsim {
         private branchToLabel(lbl: Label) {
             // find the index of lbl
             let index = this.asyncContinuations.indexOf(lbl)
-            U.assert(index != -1, "simulator: failed to find label")
+            U.assert(index!= -1, "Label L" + (lbl+1).toString() + " is referenced but not included in program.")
             // find the continuation from runtime
             let entry =  <any>runtime.entry
             let continuations: number[] = <number[]>entry.continuations
