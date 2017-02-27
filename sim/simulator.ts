@@ -249,21 +249,19 @@ namespace pxsim {
                 this.labels.push(lbl)
                 this.asyncContinuations.push(lbl)
             } 
-            let cb = getResume()
-            cb(() => {})
+            runtime.overwriteResume(-1)
         }
 
         private branchToLabel(lbl: Label) {
             // find the index of lbl
             let index = this.asyncContinuations.indexOf(lbl)
+            // we check for label at runtime, not at compile time
             U.assert(index!= -1, "Label L" + (lbl+1).toString() + " is referenced but not included in program.")
             // find the continuation from runtime
             let entry =  <any>runtime.entry
             let continuations: number[] = <number[]>entry.continuations
             U.assert(continuations.length>index, "Internal error: branchToLabel")
             runtime.overwriteResume(continuations[index])
-            let cb = getResume()
-            cb(() => {})
         }
 
         conditionalBranch(cond: Condition, lbl: Label) {
@@ -310,8 +308,7 @@ namespace pxsim {
                         break
                 }
             }
-            let cb = getResume()
-            cb(() => {})
+            runtime.overwriteResume(-1)
         }
     }
 }

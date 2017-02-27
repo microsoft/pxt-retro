@@ -575,6 +575,7 @@
     "block": "String"
    },
    "pkg": null,
+   "extendsTypes": [],
    "retType": "",
    "parameters": null,
    "qName": "String"
