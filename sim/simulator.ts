@@ -73,12 +73,15 @@ namespace pxsim {
             let header = this.registers.insertRow()
             let title = header.insertCell()
             title.innerText = "Registers"
+            title.colSpan = 8
+            title.className = "register"
             let reg = 0;
             for(let row = 0; row < 2; row++) {
                 let r = this.registers.insertRow(-1)
                 for(let col = 0; col < 4; col++) {
                     let name = r.insertCell()
                     let val = r.insertCell()
+                    name.className = "register"
                     name.innerText = "R" + reg.toString()
                     val.innerText = "00000000"
                     this.registerCells.push(val)
@@ -92,10 +95,13 @@ namespace pxsim {
             let header = this.memory.insertRow()
             let title = header.insertCell()
             title.innerText = "Memory"
+            title.colSpan = 8
+            title.className = "memory"
             for(let row = 0; row<16; row++) {
                 let r = this.memory.insertRow()
                 for(let col = 0; col<4; col++) {
                     let name = r.insertCell()
+                    name.className = "memory"
                     name.innerText = this.convertIntTo32bitHex((row*16)+(col*4),2)
                     let val = r.insertCell()
                     this.memoryCells.push(val)
