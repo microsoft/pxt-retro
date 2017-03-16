@@ -208,6 +208,7 @@ declare interface String {
 //% blockId="string_parseint" block="parse to integer %text" blockNamespace="text"
 declare function parseInt(text: string): number;
 
+// tsc expects to find these, it seems
 interface Object {}
 interface Function {}
 interface IArguments {}
@@ -237,7 +238,7 @@ declare namespace String {
     //% help=math/string-from-char-code
     //% shim=String_::fromCharCode
     //% advanced=true
-    //% blockNamespace="Math" blockId="stringFromCharCode" block="text from char code %code" weight=1 color=230
+    //% blockNamespace="Math" blockId="stringFromCharCode" block="text from char code %code" weight=1
     function fromCharCode(code: number): string;
 }
 

@@ -931,7 +931,6 @@
     "blockId": "stringFromCharCode",
     "block": "text from char code %code",
     "weight": 1,
-    "color": "230",
     "paramHelp": {},
     "jsDoc": "Make a string from the given ASCII character code.",
     "_name": "fromCharCode"
