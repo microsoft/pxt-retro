@@ -66,7 +66,8 @@
     {
      "name": "item",
      "description": "",
-     "type": "T"
+     "type": "T",
+     "options": {}
     }
    ],
    "qName": "Array.push"
@@ -162,7 +163,8 @@
     {
      "name": "value",
      "description": "",
-     "type": "T"
+     "type": "T",
+     "options": {}
     }
    ],
    "qName": "Array.unshift"
@@ -196,7 +198,8 @@
      "type": "number",
      "defaults": [
       "0"
-     ]
+     ],
+     "options": {}
     },
     {
      "name": "end",
@@ -204,7 +207,8 @@
      "type": "number",
      "defaults": [
       "0"
-     ]
+     ],
+     "options": {}
     }
    ],
    "qName": "Array.slice"
@@ -235,7 +239,8 @@
      "type": "number",
      "defaults": [
       "0"
-     ]
+     ],
+     "options": {}
     },
     {
      "name": "deleteCount",
@@ -243,7 +248,8 @@
      "type": "number",
      "defaults": [
       "0"
-     ]
+     ],
+     "options": {}
     }
    ],
    "qName": "Array.splice"
@@ -270,7 +276,8 @@
     {
      "name": "callbackfn",
      "description": "",
-     "type": "(value1: T, value2: T) => number"
+     "type": "(value1: T, value2: T) => number",
+     "options": {}
     }
    ],
    "qName": "Array.sort"
@@ -297,7 +304,8 @@
     {
      "name": "callbackfn",
      "description": "A function that accepts up to two arguments. The map method calls the callbackfn function one time for each element in the array.",
-     "type": "(value: T, index: number) => U"
+     "type": "(value: T, index: number) => U",
+     "options": {}
     }
    ],
    "qName": "Array.map"
@@ -324,7 +332,8 @@
     {
      "name": "callbackfn",
      "description": "A function that accepts up to two arguments. The filter method calls the callbackfn function one time for each element in the array.",
-     "type": "(value: T, index: number) => boolean"
+     "type": "(value: T, index: number) => boolean",
+     "options": {}
     }
    ],
    "qName": "Array.filter"
@@ -352,12 +361,14 @@
     {
      "name": "callbackfn",
      "description": "A function that accepts up to three arguments. The reduce method calls the callbackfn function one time for each element in the array.",
-     "type": "(previousValue: U, currentValue: T, currentIndex: number) => U"
+     "type": "(previousValue: U, currentValue: T, currentIndex: number) => U",
+     "options": {}
     },
     {
      "name": "initialValue",
      "description": "Initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.",
-     "type": "U"
+     "type": "U",
+     "options": {}
     }
    ],
    "qName": "Array.reduce"
@@ -382,7 +393,8 @@
     {
      "name": "element",
      "description": "",
-     "type": "T"
+     "type": "T",
+     "options": {}
     }
    ],
    "qName": "Array.removeElement"
@@ -410,7 +422,8 @@
     {
      "name": "index",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "Array.removeAt"
@@ -444,12 +457,14 @@
      "type": "number",
      "defaults": [
       "0"
-     ]
+     ],
+     "options": {}
     },
     {
      "name": "value",
      "description": "",
-     "type": "T"
+     "type": "T",
+     "options": {}
     }
    ],
    "qName": "Array.insertAt"
@@ -480,12 +495,14 @@
     {
      "name": "item",
      "description": "The value to locate in the array.",
-     "type": "T"
+     "type": "T",
+     "options": {}
     },
     {
      "name": "fromIndex",
      "description": "The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "Array.indexOf"
@@ -518,7 +535,8 @@
      "type": "number",
      "defaults": [
       "0"
-     ]
+     ],
+     "options": {}
     }
    ],
    "qName": "Array.get"
@@ -552,12 +570,14 @@
      "type": "number",
      "defaults": [
       "0"
-     ]
+     ],
+     "options": {}
     },
     {
      "name": "value",
      "description": "",
-     "type": "T"
+     "type": "T",
+     "options": {}
     }
    ],
    "qName": "Array.set"
@@ -604,7 +624,8 @@
     {
      "name": "other",
      "description": "The string to append to the end of the string.",
-     "type": "string"
+     "type": "string",
+     "options": {}
     }
    ],
    "qName": "String.concat"
@@ -634,7 +655,8 @@
     {
      "name": "index",
      "description": "The zero-based index of the desired character.",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "String.charAt"
@@ -684,7 +706,8 @@
     {
      "name": "index",
      "description": "The zero-based index of the desired character. If there is no character at the specified index, NaN is returned.",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "String.charCodeAt"
@@ -713,7 +736,8 @@
     {
      "name": "that",
      "description": "String to compare to target string",
-     "type": "string"
+     "type": "string",
+     "options": {}
     }
    ],
    "qName": "String.compare"
@@ -748,13 +772,15 @@
      "type": "number",
      "defaults": [
       "0"
-     ]
+     ],
+     "options": {}
     },
     {
      "name": "length",
      "description": "number of characters to extract",
      "type": "number",
-     "initializer": "1000000"
+     "initializer": "1000000",
+     "options": {}
     }
    ],
    "qName": "String.substr"
@@ -803,7 +829,8 @@
     {
      "name": "text",
      "description": "",
-     "type": "string"
+     "type": "string",
+     "options": {}
     }
    ],
    "qName": "parseInt"
@@ -941,7 +968,8 @@
     {
      "name": "code",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "String.fromCharCode"
@@ -1021,12 +1049,14 @@
     {
      "name": "x",
      "description": "The base value of the expression.",
-     "type": "number"
+     "type": "number",
+     "options": {}
     },
     {
      "name": "y",
      "description": "The exponent value of the expression.",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "Math.pow"
@@ -1050,7 +1080,8 @@
     {
      "name": "max",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "Math.random"
@@ -1076,7 +1107,8 @@
     {
      "name": "x",
      "description": "A numeric expression.",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "Math.sqrt"
@@ -1116,17 +1148,20 @@
     {
      "name": "arr",
      "description": "",
-     "type": "T[]"
+     "type": "T[]",
+     "options": {}
     },
     {
      "name": "start",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     },
     {
      "name": "len",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "helpers.arraySplice"
@@ -1149,7 +1184,8 @@
     {
      "name": "arr",
      "description": "",
-     "type": "T[]"
+     "type": "T[]",
+     "options": {}
     }
    ],
    "qName": "helpers.arrayReverse"
@@ -1172,7 +1208,8 @@
     {
      "name": "arr",
      "description": "",
-     "type": "T[]"
+     "type": "T[]",
+     "options": {}
     }
    ],
    "qName": "helpers.arrayShift"
@@ -1195,12 +1232,14 @@
     {
      "name": "arr",
      "description": "",
-     "type": "T[]"
+     "type": "T[]",
+     "options": {}
     },
     {
      "name": "value",
      "description": "",
-     "type": "T"
+     "type": "T",
+     "options": {}
     }
    ],
    "qName": "helpers.arrayUnshift"
@@ -1223,12 +1262,14 @@
     {
      "name": "arr",
      "description": "",
-     "type": "T[]"
+     "type": "T[]",
+     "options": {}
     },
     {
      "name": "callbackfn",
      "description": "",
-     "type": "(value1: T, value2: T) => number"
+     "type": "(value1: T, value2: T) => number",
+     "options": {}
     }
    ],
    "qName": "helpers.arraySort"
@@ -1251,12 +1292,14 @@
     {
      "name": "arr",
      "description": "",
-     "type": "T[]"
+     "type": "T[]",
+     "options": {}
     },
     {
      "name": "callbackfn",
      "description": "",
-     "type": "(value: T, index: number) => U"
+     "type": "(value: T, index: number) => U",
+     "options": {}
     }
    ],
    "qName": "helpers.arrayMap"
@@ -1279,12 +1322,14 @@
     {
      "name": "arr",
      "description": "",
-     "type": "T[]"
+     "type": "T[]",
+     "options": {}
     },
     {
      "name": "callbackfn",
      "description": "",
-     "type": "(value: T, index: number) => boolean"
+     "type": "(value: T, index: number) => boolean",
+     "options": {}
     }
    ],
    "qName": "helpers.arrayFilter"
@@ -1307,17 +1352,20 @@
     {
      "name": "arr",
      "description": "",
-     "type": "T[]"
+     "type": "T[]",
+     "options": {}
     },
     {
      "name": "callbackfn",
      "description": "",
-     "type": "(previousValue: U, currentValue: T, currentIndex: number) => U"
+     "type": "(previousValue: U, currentValue: T, currentIndex: number) => U",
+     "options": {}
     },
     {
      "name": "initialValue",
      "description": "",
-     "type": "U"
+     "type": "U",
+     "options": {}
     }
    ],
    "qName": "helpers.arrayReduce"
@@ -1340,17 +1388,20 @@
     {
      "name": "min",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     },
     {
      "name": "max",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     },
     {
      "name": "value",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "Math.clamp"
@@ -1375,7 +1426,8 @@
     {
      "name": "x",
      "description": "A numeric expression for which the absolute value is needed.",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "Math.abs"
@@ -1400,7 +1452,8 @@
     {
      "name": "x",
      "description": "The numeric expression to test",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "Math.sign"
@@ -1423,12 +1476,14 @@
     {
      "name": "a",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     },
     {
      "name": "b",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "Math.max"
@@ -1451,12 +1506,14 @@
     {
      "name": "a",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     },
     {
      "name": "b",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "Math.min"
@@ -1957,7 +2014,8 @@
     {
      "name": "msg",
      "description": "",
-     "type": "string"
+     "type": "string",
+     "options": {}
     }
    ],
    "qName": "console.log"
@@ -2004,7 +2062,8 @@
     {
      "name": "lbl",
      "description": "",
-     "type": "Label"
+     "type": "Label",
+     "options": {}
     }
    ],
    "qName": "control.label"
@@ -2030,12 +2089,14 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rs",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     }
    ],
    "qName": "control.cmp"
@@ -2062,12 +2123,14 @@
     {
      "name": "cond",
      "description": "",
-     "type": "Condition"
+     "type": "Condition",
+     "options": {}
     },
     {
      "name": "lbl",
      "description": "",
-     "type": "Label"
+     "type": "Label",
+     "options": {}
     }
    ],
    "qName": "control.beq"
@@ -2112,17 +2175,20 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rs",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Offset5",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "shift.lsl"
@@ -2148,17 +2214,20 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rs",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Offset5",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "shift.lsr"
@@ -2204,12 +2273,14 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rs",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     }
    ],
    "qName": "logical.neg"
@@ -2235,12 +2306,14 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rs",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     }
    ],
    "qName": "logical.and"
@@ -2266,12 +2339,14 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rs",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     }
    ],
    "qName": "logical.orr"
@@ -2297,12 +2372,14 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rs",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     }
    ],
    "qName": "logical.eor"
@@ -2349,12 +2426,14 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Offset8",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "arithmetic.movsImm"
@@ -2381,12 +2460,14 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Offset8",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "arithmetic.addImm"
@@ -2413,12 +2494,14 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Offset8",
      "description": "",
-     "type": "number"
+     "type": "number",
+     "options": {}
     }
    ],
    "qName": "arithmetic.subImm"
@@ -2445,17 +2528,20 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rs",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rn",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     }
    ],
    "qName": "arithmetic.add"
@@ -2482,17 +2568,20 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rs",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rn",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     }
    ],
    "qName": "arithmetic.sub"
@@ -2538,12 +2627,14 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rb",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     }
    ],
    "qName": "memory.ldr"
@@ -2569,12 +2660,14 @@
     {
      "name": "Rd",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     },
     {
      "name": "Rb",
      "description": "",
-     "type": "Register"
+     "type": "Register",
+     "options": {}
     }
    ],
    "qName": "memory.str"
