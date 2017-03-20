@@ -67,7 +67,8 @@
      "name": "item",
      "description": "",
      "type": "T",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.push"
@@ -164,7 +165,8 @@
      "name": "value",
      "description": "",
      "type": "T",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.unshift"
@@ -199,7 +201,8 @@
      "defaults": [
       "0"
      ],
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "end",
@@ -208,7 +211,8 @@
      "defaults": [
       "0"
      ],
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.slice"
@@ -240,7 +244,8 @@
      "defaults": [
       "0"
      ],
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "deleteCount",
@@ -249,7 +254,8 @@
      "defaults": [
       "0"
      ],
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.splice"
@@ -277,7 +283,8 @@
      "name": "callbackfn",
      "description": "",
      "type": "(value1: T, value2: T) => number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.sort"
@@ -305,7 +312,8 @@
      "name": "callbackfn",
      "description": "A function that accepts up to two arguments. The map method calls the callbackfn function one time for each element in the array.",
      "type": "(value: T, index: number) => U",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.map"
@@ -333,7 +341,8 @@
      "name": "callbackfn",
      "description": "A function that accepts up to two arguments. The filter method calls the callbackfn function one time for each element in the array.",
      "type": "(value: T, index: number) => boolean",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.filter"
@@ -362,13 +371,15 @@
      "name": "callbackfn",
      "description": "A function that accepts up to three arguments. The reduce method calls the callbackfn function one time for each element in the array.",
      "type": "(previousValue: U, currentValue: T, currentIndex: number) => U",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "initialValue",
      "description": "Initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.",
      "type": "U",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.reduce"
@@ -394,7 +405,8 @@
      "name": "element",
      "description": "",
      "type": "T",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.removeElement"
@@ -423,7 +435,8 @@
      "name": "index",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.removeAt"
@@ -458,13 +471,15 @@
      "defaults": [
       "0"
      ],
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "value",
      "description": "",
      "type": "T",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.insertAt"
@@ -496,13 +511,15 @@
      "name": "item",
      "description": "The value to locate in the array.",
      "type": "T",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "fromIndex",
      "description": "The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.indexOf"
@@ -536,7 +553,8 @@
      "defaults": [
       "0"
      ],
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.get"
@@ -571,13 +589,15 @@
      "defaults": [
       "0"
      ],
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "value",
      "description": "",
      "type": "T",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Array.set"
@@ -625,7 +645,8 @@
      "name": "other",
      "description": "The string to append to the end of the string.",
      "type": "string",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "String.concat"
@@ -656,7 +677,8 @@
      "name": "index",
      "description": "The zero-based index of the desired character.",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "String.charAt"
@@ -707,7 +729,8 @@
      "name": "index",
      "description": "The zero-based index of the desired character. If there is no character at the specified index, NaN is returned.",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "String.charCodeAt"
@@ -737,7 +760,8 @@
      "name": "that",
      "description": "String to compare to target string",
      "type": "string",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "String.compare"
@@ -773,14 +797,16 @@
      "defaults": [
       "0"
      ],
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "length",
      "description": "number of characters to extract",
      "type": "number",
      "initializer": "1000000",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "String.substr"
@@ -830,7 +856,8 @@
      "name": "text",
      "description": "",
      "type": "string",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "parseInt"
@@ -969,7 +996,8 @@
      "name": "code",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "String.fromCharCode"
@@ -1050,13 +1078,15 @@
      "name": "x",
      "description": "The base value of the expression.",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "y",
      "description": "The exponent value of the expression.",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Math.pow"
@@ -1081,7 +1111,8 @@
      "name": "max",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Math.random"
@@ -1108,7 +1139,8 @@
      "name": "x",
      "description": "A numeric expression.",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Math.sqrt"
@@ -1149,19 +1181,22 @@
      "name": "arr",
      "description": "",
      "type": "T[]",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "start",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "len",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "helpers.arraySplice"
@@ -1185,7 +1220,8 @@
      "name": "arr",
      "description": "",
      "type": "T[]",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "helpers.arrayReverse"
@@ -1209,7 +1245,8 @@
      "name": "arr",
      "description": "",
      "type": "T[]",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "helpers.arrayShift"
@@ -1233,13 +1270,15 @@
      "name": "arr",
      "description": "",
      "type": "T[]",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "value",
      "description": "",
      "type": "T",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "helpers.arrayUnshift"
@@ -1263,13 +1302,15 @@
      "name": "arr",
      "description": "",
      "type": "T[]",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "callbackfn",
      "description": "",
      "type": "(value1: T, value2: T) => number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "helpers.arraySort"
@@ -1293,13 +1334,15 @@
      "name": "arr",
      "description": "",
      "type": "T[]",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "callbackfn",
      "description": "",
      "type": "(value: T, index: number) => U",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "helpers.arrayMap"
@@ -1323,13 +1366,15 @@
      "name": "arr",
      "description": "",
      "type": "T[]",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "callbackfn",
      "description": "",
      "type": "(value: T, index: number) => boolean",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "helpers.arrayFilter"
@@ -1353,19 +1398,22 @@
      "name": "arr",
      "description": "",
      "type": "T[]",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "callbackfn",
      "description": "",
      "type": "(previousValue: U, currentValue: T, currentIndex: number) => U",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "initialValue",
      "description": "",
      "type": "U",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "helpers.arrayReduce"
@@ -1389,19 +1437,22 @@
      "name": "min",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "max",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "value",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Math.clamp"
@@ -1427,7 +1478,8 @@
      "name": "x",
      "description": "A numeric expression for which the absolute value is needed.",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Math.abs"
@@ -1453,7 +1505,8 @@
      "name": "x",
      "description": "The numeric expression to test",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Math.sign"
@@ -1477,13 +1530,15 @@
      "name": "a",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "b",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Math.max"
@@ -1507,13 +1562,15 @@
      "name": "a",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     },
     {
      "name": "b",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "Math.min"
@@ -2015,7 +2072,8 @@
      "name": "msg",
      "description": "",
      "type": "string",
-     "options": {}
+     "options": {},
+     "isEnum": false
     }
    ],
    "qName": "console.log"
@@ -2063,7 +2121,8 @@
      "name": "lbl",
      "description": "",
      "type": "Label",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "control.label"
@@ -2090,13 +2149,15 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rs",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "control.cmp"
@@ -2124,13 +2185,15 @@
      "name": "cond",
      "description": "",
      "type": "Condition",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "lbl",
      "description": "",
      "type": "Label",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "control.beq"
@@ -2164,6 +2227,12 @@
     "_source": null,
     "blockId": "processorLSL",
     "block": "LSL d:%Rd |, s:%Rs |, V:%Offset5",
+    "paramMin": {
+     "Offset5": "0"
+    },
+    "paramMax": {
+     "Offset5": "31"
+    },
     "shim": "shift::lsl",
     "paramHelp": {},
     "jsDoc": "Shift Rs left by 5-bit immediate value V and place result in Rd",
@@ -2176,19 +2245,29 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rs",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Offset5",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {
+      "min": {
+       "value": "0"
+      },
+      "max": {
+       "value": "31"
+      }
+     },
+     "isEnum": false
     }
    ],
    "qName": "shift.lsl"
@@ -2203,6 +2282,12 @@
     "_source": null,
     "blockId": "processorLSR",
     "block": "LSR d:%Rd |, s:%Rs |, V:%Offset5",
+    "paramMin": {
+     "Offset5": "0"
+    },
+    "paramMax": {
+     "Offset5": "31"
+    },
     "shim": "shift::lsr",
     "paramHelp": {},
     "jsDoc": "Shift Rs right by 5-bit immediate value V and place result in Rd",
@@ -2215,19 +2300,29 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rs",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Offset5",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {
+      "min": {
+       "value": "0"
+      },
+      "max": {
+       "value": "31"
+      }
+     },
+     "isEnum": false
     }
    ],
    "qName": "shift.lsr"
@@ -2274,13 +2369,15 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rs",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "logical.neg"
@@ -2307,13 +2404,15 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rs",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "logical.and"
@@ -2340,13 +2439,15 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rs",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "logical.orr"
@@ -2373,13 +2474,15 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rs",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "logical.eor"
@@ -2415,6 +2518,12 @@
     "blockId": "processorMOVSIMM",
     "block": "MOV d:%Rd |, %Offset8",
     "weight": 90,
+    "paramMin": {
+     "Offset8": "0"
+    },
+    "paramMax": {
+     "Offset8": "255"
+    },
     "shim": "arithmetic::movsImm",
     "paramHelp": {},
     "jsDoc": "",
@@ -2427,13 +2536,22 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Offset8",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {
+      "min": {
+       "value": "0"
+      },
+      "max": {
+       "value": "255"
+      }
+     },
+     "isEnum": false
     }
    ],
    "qName": "arithmetic.movsImm"
@@ -2449,6 +2567,12 @@
     "blockId": "processorADDIMM",
     "block": "ADD d:%Rd |, %Offset8",
     "weight": 88,
+    "paramMin": {
+     "Offset8": "0"
+    },
+    "paramMax": {
+     "Offset8": "255"
+    },
     "shim": "arithmetic::addImm",
     "paramHelp": {},
     "jsDoc": "Add 8-bit immediate value V to contents of Rd and place result in Rd",
@@ -2461,13 +2585,22 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Offset8",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {
+      "min": {
+       "value": "0"
+      },
+      "max": {
+       "value": "255"
+      }
+     },
+     "isEnum": false
     }
    ],
    "qName": "arithmetic.addImm"
@@ -2483,6 +2616,12 @@
     "blockId": "processorSUBIMM",
     "block": "SUB d:%Rd |, %Offset8",
     "weight": 86,
+    "paramMin": {
+     "Offset8": "0"
+    },
+    "paramMax": {
+     "Offset8": "255"
+    },
     "shim": "arithmetic::subImm",
     "paramHelp": {},
     "jsDoc": "Subtract 8-bit immediate value V from contents of Rd and place result in Rd",
@@ -2495,13 +2634,22 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Offset8",
      "description": "",
      "type": "number",
-     "options": {}
+     "options": {
+      "min": {
+       "value": "0"
+      },
+      "max": {
+       "value": "255"
+      }
+     },
+     "isEnum": false
     }
    ],
    "qName": "arithmetic.subImm"
@@ -2529,19 +2677,22 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rs",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rn",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "arithmetic.add"
@@ -2569,19 +2720,22 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rs",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rn",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "arithmetic.sub"
@@ -2628,13 +2782,15 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rb",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "memory.ldr"
@@ -2661,13 +2817,15 @@
      "name": "Rd",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     },
     {
      "name": "Rb",
      "description": "",
      "type": "Register",
-     "options": {}
+     "options": {},
+     "isEnum": true
     }
    ],
    "qName": "memory.str"

@@ -57,6 +57,7 @@ namespace pxsim.shift {
      */
     //% blockId=processorLSL
     //% block="LSL d:%Rd |, s:%Rs |, V:%Offset5"
+    //% Offset5.min=0 Offset5.max=31
     export function lsl(Rd: Register, Rs: Register, Offset5: number) {
         board().shiftRegister(Rd, Rs, "<<", Offset5)
     }
@@ -66,6 +67,7 @@ namespace pxsim.shift {
      */
     //% blockId=processorLSR 
     //% block="LSR d:%Rd |, s:%Rs |, V:%Offset5"
+    //% Offset5.min=0 Offset5.max=31
     export function lsr(Rd: Register, Rs: Register, Offset5: number) {
         board().shiftRegister(Rd, Rs, ">>", Offset5)
     }
@@ -117,6 +119,7 @@ namespace pxsim.arithmetic {
     //% blockId=processorMOVSIMM
     //% block="MOV d:%Rd |, %Offset8"
     //% weight=90
+    //% Offset8.min=0 Offset8.max=255
     export function movsImm(Rd: Register, Offset8: number) {
         board().setRegister(Rd,Offset8);
     }
@@ -127,6 +130,7 @@ namespace pxsim.arithmetic {
     //% blockId=processorADDIMM
     //% block="ADD d:%Rd |, %Offset8"
     //% weight=88 
+    //% Offset8.min=0 Offset8.max=255
     export function addImm(Rd: Register, Offset8: number) {
         board().addRegister(Rd,Offset8);
     }
@@ -137,6 +141,7 @@ namespace pxsim.arithmetic {
     //% blockId=processorSUBIMM
     //% block="SUB d:%Rd |, %Offset8"
     //% weight=86
+    //% Offset8.min=0 Offset8.max=255
     export function subImm(Rd: Register, Offset8: number) {
         board().subRegister(Rd,Offset8);
     }

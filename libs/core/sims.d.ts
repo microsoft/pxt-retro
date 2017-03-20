@@ -41,6 +41,7 @@ declare namespace shift {
      */
     //% blockId=processorLSL
     //% block="LSL d:%Rd |, s:%Rs |, V:%Offset5"
+    //% Offset5.min=0 Offset5.max=31
     //% shim=shift::lsl
     function lsl(Rd: Register, Rs: Register, Offset5: number): void;
 
@@ -49,6 +50,7 @@ declare namespace shift {
      */
     //% blockId=processorLSR 
     //% block="LSR d:%Rd |, s:%Rs |, V:%Offset5"
+    //% Offset5.min=0 Offset5.max=31
     //% shim=shift::lsr
     function lsr(Rd: Register, Rs: Register, Offset5: number): void;
 
@@ -91,6 +93,7 @@ declare namespace arithmetic {
     //% blockId=processorMOVSIMM
     //% block="MOV d:%Rd |, %Offset8"
     //% weight=90
+    //% Offset8.min=0 Offset8.max=255
     //% shim=arithmetic::movsImm
     function movsImm(Rd: Register, Offset8: number): void;
 
@@ -99,7 +102,8 @@ declare namespace arithmetic {
      */
     //% blockId=processorADDIMM
     //% block="ADD d:%Rd |, %Offset8"
-    //% weight=88
+    //% weight=88 
+    //% Offset8.min=0 Offset8.max=255
     //% shim=arithmetic::addImm
     function addImm(Rd: Register, Offset8: number): void;
 
@@ -109,6 +113,7 @@ declare namespace arithmetic {
     //% blockId=processorSUBIMM
     //% block="SUB d:%Rd |, %Offset8"
     //% weight=86
+    //% Offset8.min=0 Offset8.max=255
     //% shim=arithmetic::subImm
     function subImm(Rd: Register, Offset8: number): void;
 
