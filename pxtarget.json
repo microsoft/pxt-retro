@@ -26,7 +26,7 @@
        "aspectRatio": 1.2
     },
     "appTheme": {
-        "blocksOnly": true,
+        "blocksOnly": false,
         "logoUrl": "https://retro.pxt.io/",
         "homeUrl": "https://retro.pxt.io/",
         "embedUrl": "https://retro.pxt.io/",
