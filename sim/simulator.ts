@@ -143,7 +143,7 @@ namespace pxsim {
 
         private overflow(n: number) {
             if (n >= UPPER) {
-                return n - (UPPER-1)
+                return n - UPPER
             }
             return n
         }
