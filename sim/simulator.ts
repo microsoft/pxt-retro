@@ -29,7 +29,25 @@ namespace pxsim {
     export class ProcessorState {
         memory : number[] = [];
         registers : number[] = [];
-        conditionCode : number = 0;
+
+        // setting condition codes based on sign bits, overflow, etc.
+        // Application Processor Status Register (APSR):
+        //
+        // N: Negative
+        // - The N flag is set by an instruction if the result is negative. 
+        // - In practice, N is set to the two's complement sign bit of the result (bit 31).
+        //
+        // Z: Zero
+        // - The Z flag is set if the result of the flag-setting instruction is zero.
+        //
+        // C: Carry (or Unsigned Overflow)
+        // - The C flag is set if the result of an unsigned operation overflows the 
+        // - 32-bit result register. This bit can be used to implement 64-bit unsigned arithmetic, for example.
+
+        N: boolean = false;
+        Z: boolean = false;
+        C: boolean = false;
+
         constructor(memSize: number, regSize: number) {
             this.memory.length = memSize;
             for(let i=0;i<memSize;i++) { this.memory[i] = 0 }
@@ -125,7 +143,7 @@ namespace pxsim {
         }
 
         private convertIntTo32bitHex(n: number, length = 8) {
-            U.assert(0<=n && n < Math.pow(16,length))
+            U.assert(0<=n && n < Math.pow(16,length), "0<=n && n < Math.pow(16,length)")
             let str = n.toString(16).toUpperCase()
             let zeros = length - str.length
             let zeroStr = ""
@@ -135,17 +153,24 @@ namespace pxsim {
 
         private ensureRange(n: number, top: number) {
             n = Math.floor(n)
-            U.assert(0<=n && n<top, n.toString() + " is outside of range [ 0, " + top.toString() + "]")
+            U.assert(0<=n && n<top, n.toString() + " is outside of range [ 0, " + (top-1).toString() + "]")
             return n
         }
 
-        // TODO: setting condition codes based on sign bits, overflow, etc.
-
-        private overflow(n: number) {
+        // handle overflow of 32-bit quantities
+        // and compute condition codes
+        private overflow(n: number, signed=false) {
+            let res = n;
+            this.processor.C = this.processor.N = false;
             if (n >= UPPER) {
-                return n - UPPER
+                this.processor.C = true;
+                res = n - UPPER;
             }
-            return n
+            if (signed) {
+                this.processor.N = !!(res & 0x80000000);
+            }
+            this.processor.Z = (res === 0x00000000);
+            return res;
         }
 
         subRegister(Rd:Register, Offset8: number) {
@@ -153,7 +178,7 @@ namespace pxsim {
                 let n = this.ensureRange(Offset8, 256)
                 // convert to 2's complement
                 n = UPPER - n
-                let res = this.overflow(this.processor.registers[Rd] + n)
+                let res = this.overflow(this.processor.registers[Rd] + n, true)
                 this.processor.registers[Rd] = res
                 this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
             }
@@ -179,7 +204,7 @@ namespace pxsim {
         subRegisters(Rd:Register, Rs:Register, Rn:Register) {
             if (this.phase == Phase.Execution) {
                 let neg = UPPER - this.processor.registers[Rn]
-                let res = this.overflow(this.processor.registers[Rs] + neg)
+                let res = this.overflow(this.processor.registers[Rs] + neg, true)
                 this.processor.registers[Rd] = res
                 this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
             }
@@ -188,9 +213,13 @@ namespace pxsim {
         shiftRegister(Rd:Register, Rs:Register, op:string, Offset5: number) {
             if (this.phase == Phase.Execution) {
                 let n = this.ensureRange(Offset5, 32)
-                let res = op == "<<" ? this.processor.registers[Rs] << n : this.processor.registers[Rs] >>> n
-                // shifting can result in negative value
-                if (res < 0) res = UPPER + res
+                let res = op == "<<" ? (this.processor.registers[Rs] | 0x0) << n 
+                                     : (this.processor.registers[Rs] | 0x0) >>> n
+                // TODO: need special logic for carry out on LSL
+                if (res < 0) { 
+                    res = UPPER + res;
+                }
+                res = this.overflow(res)
                 this.processor.registers[Rd] = res
                 this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
             }
@@ -205,7 +234,11 @@ namespace pxsim {
                     case "ORR": res = this.processor.registers[Rd] | this.processor.registers[Rs]; break
                     case "EOR": res = this.processor.registers[Rd] ^ this.processor.registers[Rs]; break
                 }
-                if (res < 0) res = UPPER + res
+                // logic ops can cause negative
+                if (res < 0) { 
+                    res = UPPER + res;
+                }
+                res = this.overflow(res)
                 this.processor.registers[Rd] = res
                 this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
             }
@@ -215,13 +248,13 @@ namespace pxsim {
             if (this.phase == Phase.Execution) {
                 // validators will ensure, but let's enforce anyway
                 let n = this.ensureRange(Offset8, 256)
-                this.processor.registers[Rd] = n
+                this.processor.registers[Rd] = this.overflow(n)
                 this.registerCells[Rd].innerText = this.convertIntTo32bitHex(n)
             }
         }
 
         private checkAddr(addr: number): number {
-            U.assert(0 <= addr && addr < 256, "address " + addr.toString() + " is out of range [0,255]")
+            U.assert(0 <= addr && addr < 256, "address " + addr.toString() + " is out of range [0,252]")
             U.assert(addr/4 - Math.floor(addr/4) == 0, "unaligned address (must be a multiple of 4)");
             return addr >> 2
         }
@@ -229,7 +262,7 @@ namespace pxsim {
         loadRegister(Rd: Register, Rb: Register) {
             if (this.phase == Phase.Execution) {
                 let addr = this.checkAddr(this.processor.registers[Rb])
-                let res = this.processor.registers[Rd] = this.processor.memory[addr]
+                let res = this.processor.registers[Rd] = this.overflow(this.processor.memory[addr])
                 this.registerCells[Rd].innerText = this.convertIntTo32bitHex(res)
             }
         }
@@ -238,14 +271,15 @@ namespace pxsim {
             if (this.phase == Phase.Execution) {
                 let addr = this.checkAddr(this.processor.registers[Rb])
                 let res = this.processor.registers[Rd]
-                this.processor.memory[addr]
+                this.processor.memory[addr] = this.overflow(res)
                 this.memoryCells[addr].innerText = this.convertIntTo32bitHex(res)
             }
         }
 
         compareRegisters(Rd: Register, Rs: Register) {
             if (this.phase == Phase.Execution) {
-                this.processor.conditionCode = this.processor.registers[Rd] - this.processor.registers[Rs]   
+                let neg = UPPER - this.processor.registers[Rs]
+                let res = this.overflow(this.processor.registers[Rd] + neg, true)
             }
         }
 
@@ -277,37 +311,37 @@ namespace pxsim {
             } else {
                 switch(cond) {
                     case Condition.EQ:
-                        if (this.processor.conditionCode == 0) {
+                        if (this.processor.Z) {
                             this.branchToLabel(lbl)
                             return
                         }
                         break
                     case Condition.NE: 
-                        if (this.processor.conditionCode != 0) {
+                        if (!this.processor.Z) {
                             this.branchToLabel(lbl)
                             return
                         }
                         break
                     case Condition.GT:
-                        if (this.processor.conditionCode > 0) {
+                        if (!this.processor.N && !this.processor.Z) {
                             this.branchToLabel(lbl)
                             return
                         }
                         break
                     case Condition.LT:
-                        if (this.processor.conditionCode < 0) {
+                        if (this.processor.N) {
                             this.branchToLabel(lbl)
                             return
                         }
                         break
                     case Condition.GE:
-                        if (this.processor.conditionCode >= 0) {
+                        if (!this.processor.N || this.processor.Z) {
                             this.branchToLabel(lbl)
                             return
                         }
                         break
                     case Condition.LE:
-                        if (this.processor.conditionCode <= 0) {
+                        if (this.processor.Z || this.processor.N) {
                             this.branchToLabel(lbl)
                             return
                         }
