@@ -53,20 +53,20 @@ namespace pxsim.control {
 //% color=#B4009E weight=99
 namespace pxsim.shift {
     /**
-     * Shift Rs left by 5-bit immediate value V and place result in Rd
+     * Shift Rs left by 5-bit immediate value C and place result in Rd
      */
     //% blockId=processorLSL
-    //% block="LSL d:%Rd |, s:%Rs |, V:%Offset5"
+    //% block="LSL d:%Rd |, s:%Rs |, C:%Offset5"
     //% Offset5.min=0 Offset5.max=31
     export function lsl(Rd: Register, Rs: Register, Offset5: number) {
         board().shiftRegister(Rd, Rs, "<<", Offset5)
     }
 
     /**
-     * Shift Rs right by 5-bit immediate value V and place result in Rd
+     * Shift Rs right by 5-bit immediate value C and place result in Rd
      */
     //% blockId=processorLSR 
-    //% block="LSR d:%Rd |, s:%Rs |, V:%Offset5"
+    //% block="LSR d:%Rd |, s:%Rs |, C:%Offset5"
     //% Offset5.min=0 Offset5.max=31
     export function lsr(Rd: Register, Rs: Register, Offset5: number) {
         board().shiftRegister(Rd, Rs, ">>", Offset5)
@@ -117,7 +117,7 @@ namespace pxsim.logical {
 namespace pxsim.arithmetic {
 
     //% blockId=processorMOVSIMM
-    //% block="MOV d:%Rd |, %Offset8"
+    //% block="MOV d:%Rd |, C:%Offset8"
     //% weight=90
     //% Offset8.min=0 Offset8.max=255
     export function movsImm(Rd: Register, Offset8: number) {
@@ -125,10 +125,10 @@ namespace pxsim.arithmetic {
     }
 
     /**
-     * Add 8-bit immediate value V to contents of Rd and place result in Rd
+     * Add 8-bit immediate value C to contents of Rd and place result in Rd
      */
     //% blockId=processorADDIMM
-    //% block="ADD d:%Rd |, %Offset8"
+    //% block="ADD d:%Rd |, C:%Offset8"
     //% weight=88 
     //% Offset8.min=0 Offset8.max=255
     export function addImm(Rd: Register, Offset8: number) {
@@ -136,10 +136,10 @@ namespace pxsim.arithmetic {
     }
 
     /**
-     * Subtract 8-bit immediate value V from contents of Rd and place result in Rd
+     * Subtract 8-bit immediate value C from contents of Rd and place result in Rd
      */
     //% blockId=processorSUBIMM
-    //% block="SUB d:%Rd |, %Offset8"
+    //% block="SUB d:%Rd |, C:%Offset8"
     //% weight=86
     //% Offset8.min=0 Offset8.max=255
     export function subImm(Rd: Register, Offset8: number) {
@@ -191,3 +191,27 @@ namespace pxsim.memory {
     }
 }
 
+/**
+ * Input/output
+ */
+//% color=#008002 weight=34
+namespace pxsim.io {
+    /**
+     * Load into Rd the next 32-bit value in the input queue, if not empty.
+     * If the input queue is empty, stop program execution.
+     */
+    //% blockId=processorIN
+    //% block="IN d:%rd"
+    export function queueIn(Rd: Register) {
+
+    }
+
+    /**
+     * Store into the output queue the 32-bit value in Rd.
+     */
+    //% blockId=processorOUT
+    //% block="OUT d:%rd"
+    export function queueOut(Rd: Register) {
+
+    }
+}

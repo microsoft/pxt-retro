@@ -12,3 +12,8 @@ namespace memory { }
 
 //% color=#D83B01 weight=60 icon="\uf233"
 namespace control { }
+
+
+//% color=#008002 weight=50
+//% block="Input/Output"
+namespace io { }

@@ -37,19 +37,19 @@ declare namespace control {
 }
 declare namespace shift {
     /**
-     * Shift Rs left by 5-bit immediate value V and place result in Rd
+     * Shift Rs left by 5-bit immediate value C and place result in Rd
      */
     //% blockId=processorLSL
-    //% block="LSL d:%Rd |, s:%Rs |, V:%Offset5"
+    //% block="LSL d:%Rd |, s:%Rs |, C:%Offset5"
     //% Offset5.min=0 Offset5.max=31
     //% shim=shift::lsl
     function lsl(Rd: Register, Rs: Register, Offset5: number): void;
 
     /**
-     * Shift Rs right by 5-bit immediate value V and place result in Rd
+     * Shift Rs right by 5-bit immediate value C and place result in Rd
      */
     //% blockId=processorLSR 
-    //% block="LSR d:%Rd |, s:%Rs |, V:%Offset5"
+    //% block="LSR d:%Rd |, s:%Rs |, C:%Offset5"
     //% Offset5.min=0 Offset5.max=31
     //% shim=shift::lsr
     function lsr(Rd: Register, Rs: Register, Offset5: number): void;
@@ -91,27 +91,27 @@ declare namespace logical {
 }
 declare namespace arithmetic {
     //% blockId=processorMOVSIMM
-    //% block="MOV d:%Rd |, %Offset8"
+    //% block="MOV d:%Rd |, C:%Offset8"
     //% weight=90
     //% Offset8.min=0 Offset8.max=255
     //% shim=arithmetic::movsImm
     function movsImm(Rd: Register, Offset8: number): void;
 
     /**
-     * Add 8-bit immediate value V to contents of Rd and place result in Rd
+     * Add 8-bit immediate value C to contents of Rd and place result in Rd
      */
     //% blockId=processorADDIMM
-    //% block="ADD d:%Rd |, %Offset8"
+    //% block="ADD d:%Rd |, C:%Offset8"
     //% weight=88 
     //% Offset8.min=0 Offset8.max=255
     //% shim=arithmetic::addImm
     function addImm(Rd: Register, Offset8: number): void;
 
     /**
-     * Subtract 8-bit immediate value V from contents of Rd and place result in Rd
+     * Subtract 8-bit immediate value C from contents of Rd and place result in Rd
      */
     //% blockId=processorSUBIMM
-    //% block="SUB d:%Rd |, %Offset8"
+    //% block="SUB d:%Rd |, C:%Offset8"
     //% weight=86
     //% Offset8.min=0 Offset8.max=255
     //% shim=arithmetic::subImm
@@ -152,6 +152,25 @@ declare namespace memory {
     //% block="STR d:%Rd |, |[ b:%Rb |]"
     //% shim=memory::str
     function str(Rd: Register, Rb: Register): void;
+
+}
+declare namespace io {
+    /**
+     * Load into Rd the next 32-bit value in the input queue, if not empty.
+     * If the input queue is empty, stop program execution.
+     */
+    //% blockId=processorIN
+    //% block="IN d:%rd"
+    //% shim=io::queueIn
+    function queueIn(Rd: Register): void;
+
+    /**
+     * Store into the output queue the 32-bit value in Rd.
+     */
+    //% blockId=processorOUT
+    //% block="OUT d:%rd"
+    //% shim=io::queueOut
+    function queueOut(Rd: Register): void;
 
 }
 

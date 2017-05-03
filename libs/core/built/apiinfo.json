@@ -2273,7 +2273,7 @@
     "callingConvention": 0,
     "_source": null,
     "blockId": "processorLSL",
-    "block": "LSL d:%Rd |, s:%Rs |, V:%Offset5",
+    "block": "LSL d:%Rd |, s:%Rs |, C:%Offset5",
     "paramMin": {
      "Offset5": "0"
     },
@@ -2282,7 +2282,7 @@
     },
     "shim": "shift::lsl",
     "paramHelp": {},
-    "jsDoc": "Shift Rs left by 5-bit immediate value V and place result in Rd",
+    "jsDoc": "Shift Rs left by 5-bit immediate value C and place result in Rd",
     "_name": "lsl"
    },
    "pkg": null,
@@ -2329,7 +2329,7 @@
     "callingConvention": 0,
     "_source": null,
     "blockId": "processorLSR",
-    "block": "LSR d:%Rd |, s:%Rs |, V:%Offset5",
+    "block": "LSR d:%Rd |, s:%Rs |, C:%Offset5",
     "paramMin": {
      "Offset5": "0"
     },
@@ -2338,7 +2338,7 @@
     },
     "shim": "shift::lsr",
     "paramHelp": {},
-    "jsDoc": "Shift Rs right by 5-bit immediate value V and place result in Rd",
+    "jsDoc": "Shift Rs right by 5-bit immediate value C and place result in Rd",
     "_name": "lsr"
    },
    "pkg": null,
@@ -2569,7 +2569,7 @@
     "callingConvention": 0,
     "_source": null,
     "blockId": "processorMOVSIMM",
-    "block": "MOV d:%Rd |, %Offset8",
+    "block": "MOV d:%Rd |, C:%Offset8",
     "weight": 90,
     "paramMin": {
      "Offset8": "0"
@@ -2619,7 +2619,7 @@
     "callingConvention": 0,
     "_source": null,
     "blockId": "processorADDIMM",
-    "block": "ADD d:%Rd |, %Offset8",
+    "block": "ADD d:%Rd |, C:%Offset8",
     "weight": 88,
     "paramMin": {
      "Offset8": "0"
@@ -2629,7 +2629,7 @@
     },
     "shim": "arithmetic::addImm",
     "paramHelp": {},
-    "jsDoc": "Add 8-bit immediate value V to contents of Rd and place result in Rd",
+    "jsDoc": "Add 8-bit immediate value C to contents of Rd and place result in Rd",
     "_name": "addImm"
    },
    "pkg": null,
@@ -2669,7 +2669,7 @@
     "callingConvention": 0,
     "_source": null,
     "blockId": "processorSUBIMM",
-    "block": "SUB d:%Rd |, %Offset8",
+    "block": "SUB d:%Rd |, C:%Offset8",
     "weight": 86,
     "paramMin": {
      "Offset8": "0"
@@ -2679,7 +2679,7 @@
     },
     "shim": "arithmetic::subImm",
     "paramHelp": {},
-    "jsDoc": "Subtract 8-bit immediate value V from contents of Rd and place result in Rd",
+    "jsDoc": "Subtract 8-bit immediate value C from contents of Rd and place result in Rd",
     "_name": "subImm"
    },
    "pkg": null,
@@ -2889,6 +2889,83 @@
    ],
    "snippet": "str(null, null)",
    "qName": "memory.str"
+  },
+  "io": {
+   "kind": 5,
+   "namespace": "",
+   "name": "io",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "color": "#008002",
+    "weight": 50,
+    "block": "Input/Output",
+    "paramHelp": {},
+    "jsDoc": ""
+   },
+   "pkg": null,
+   "retType": "",
+   "parameters": null,
+   "qName": "io"
+  },
+  "io.queueIn": {
+   "kind": 3,
+   "namespace": "io",
+   "name": "queueIn",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "blockId": "processorIN",
+    "block": "IN d:%rd",
+    "shim": "io::queueIn",
+    "paramHelp": {},
+    "jsDoc": "Load into Rd the next 32-bit value in the input queue, if not empty.\nIf the input queue is empty, stop program execution.",
+    "_name": "queueIn"
+   },
+   "pkg": null,
+   "retType": "void",
+   "parameters": [
+    {
+     "name": "Rd",
+     "description": "",
+     "type": "Register",
+     "options": {},
+     "isEnum": true
+    }
+   ],
+   "snippet": "queueIn(null)",
+   "qName": "io.queueIn"
+  },
+  "io.queueOut": {
+   "kind": 3,
+   "namespace": "io",
+   "name": "queueOut",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "blockId": "processorOUT",
+    "block": "OUT d:%rd",
+    "shim": "io::queueOut",
+    "paramHelp": {},
+    "jsDoc": "Store into the output queue the 32-bit value in Rd.",
+    "_name": "queueOut"
+   },
+   "pkg": null,
+   "retType": "void",
+   "parameters": [
+    {
+     "name": "Rd",
+     "description": "",
+     "type": "Register",
+     "options": {},
+     "isEnum": true
+    }
+   ],
+   "snippet": "queueOut(null)",
+   "qName": "io.queueOut"
   }
  }
 }
