@@ -31,7 +31,7 @@
     "blockId": "lists_length",
     "block": "length of %VALUE",
     "blockBuiltin": "true",
-    "blockNamespace": "lists",
+    "blockNamespace": "arrays",
     "paramHelp": {},
     "jsDoc": "Gets or sets the length of the array. This is a number one higher than the highest element defined in an array.",
     "_name": "length"
@@ -49,11 +49,12 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/push",
     "shim": "Array_::push",
-    "weight": 75,
+    "weight": 49,
     "blockId": "array_push",
-    "block": "push into %this|with last item %item",
-    "blockNamespace": "lists",
+    "block": "%list| add value %value| to end",
+    "blockNamespace": "arrays",
     "paramHelp": {
      "items": "New elements of the Array."
     },
@@ -82,11 +83,12 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/pop",
     "shim": "Array_::pop",
-    "weight": 74,
+    "weight": 48,
     "blockId": "array_pop",
-    "block": "pop last item from %this",
-    "blockNamespace": "lists",
+    "block": "get and remove last value from %list",
+    "blockNamespace": "arrays",
     "paramHelp": {},
     "jsDoc": "Removes the last element from an array and returns it.",
     "_name": "pop"
@@ -105,11 +107,13 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/reverse",
     "helper": "arrayReverse",
     "weight": 10,
+    "advanced": true,
     "blockId": "array_reverse",
-    "block": "reverse %this",
-    "blockNamespace": "lists",
+    "block": "reverse %list",
+    "blockNamespace": "arrays",
     "paramHelp": {},
     "jsDoc": "Reverses the elements in an Array. The first array element becomes the last, and the last array element becomes the first.",
     "_name": "reverse"
@@ -128,11 +132,13 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/shift",
     "helper": "arrayShift",
     "weight": 70,
+    "advanced": true,
     "blockId": "array_shift",
-    "block": "shift first item from %this",
-    "blockNamespace": "lists",
+    "block": "get and remove first value from %list",
+    "blockNamespace": "arrays",
     "paramHelp": {},
     "jsDoc": "Removes the first element from an array and returns that element. This method changes the length of the array.",
     "_name": "shift"
@@ -151,11 +157,13 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/unshift",
     "helper": "arrayUnshift",
     "weight": 69,
+    "advanced": true,
     "blockId": "array_unshift",
-    "block": "unshift into %this|with first item %item",
-    "blockNamespace": "lists",
+    "block": "%list| insert %value| at beginning",
+    "blockNamespace": "arrays",
     "paramHelp": {
      "element": "to insert at the start of the Array."
     },
@@ -184,11 +192,11 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/slice",
     "helper": "arraySlice",
     "weight": 41,
-    "blockId": "array_slice",
-    "block": "slice %this|from %start|to %end",
-    "blockNamespace": "lists",
+    "advanced": true,
+    "blockNamespace": "arrays",
     "paramHelp": {
      "start": "The beginning of the specified portion of the array. eg: 0",
      "end": "The end of the specified portion of the array. eg: 0"
@@ -431,11 +439,13 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/removeat",
     "shim": "Array_::removeAt",
     "weight": 49,
+    "advanced": true,
     "blockId": "array_removeat",
-    "block": "remove from %this|at %index",
-    "blockNamespace": "lists",
+    "block": "%list| remove value at %index",
+    "blockNamespace": "arrays",
     "paramHelp": {},
     "jsDoc": "Removes the object at position index.",
     "_name": "removeAt"
@@ -462,11 +472,13 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/insertat",
     "shim": "Array_::insertAt",
     "weight": 84,
+    "advanced": true,
     "blockId": "array_insertAt",
-    "block": "insert in %this|at %index|with value %value",
-    "blockNamespace": "lists",
+    "block": "%list| insert at %index| value %value",
+    "blockNamespace": "arrays",
     "paramHelp": {
      "index": "the zero-based position in the list to insert the value, eg: 0",
      "the": "value to insert, eg: 0"
@@ -506,11 +518,13 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/indexof",
     "shim": "Array_::indexOf",
     "weight": 50,
+    "advanced": true,
     "blockId": "array_indexof",
-    "block": "index in %this|of %item",
-    "blockNamespace": "lists",
+    "block": "%list| find index of %value",
+    "blockNamespace": "arrays",
     "paramHelp": {
      "item": "The value to locate in the array.",
      "fromIndex": "The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0."
@@ -547,11 +561,9 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/get",
     "shim": "Array_::getAt",
     "weight": 85,
-    "blockId": "array_get",
-    "block": "get from %this|at %index",
-    "blockNamespace": "lists",
     "paramHelp": {
      "index": "the zero-based position in the list of the item, eg: 0"
     },
@@ -583,11 +595,9 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
+    "help": "arrays/set",
     "shim": "Array_::setAt",
     "weight": 84,
-    "blockId": "array_set",
-    "block": "set in %this|at %index|with value %value",
-    "blockNamespace": "lists",
     "paramHelp": {
      "index": "the zero-based position in the list to store the value, eg: 0",
      "the": "value to insert, eg: 0"
@@ -646,7 +656,7 @@
     "callingConvention": 0,
     "_source": null,
     "shim": "String_::concat",
-    "weight": 80,
+    "weight": 49,
     "blockId": "string_concat",
     "blockNamespace": "text",
     "paramHelp": {
@@ -678,7 +688,7 @@
     "callingConvention": 0,
     "_source": null,
     "shim": "String_::charAt",
-    "weight": 77,
+    "weight": 48,
     "blockId": "string_get",
     "block": "char from %this=text|at %pos",
     "blockNamespace": "text",
@@ -712,7 +722,7 @@
     "_source": null,
     "property": "true",
     "shim": "String_::length",
-    "weight": 75,
+    "weight": 47,
     "blockId": "text_length",
     "block": "length of %VALUE",
     "blockBuiltin": "true",
@@ -1175,6 +1185,196 @@
    "snippet": "sqrt(0)",
    "qName": "Math.sqrt"
   },
+  "Math.ceil": {
+   "kind": 3,
+   "namespace": "Math",
+   "name": "ceil",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "shim": "Math_::ceil",
+    "paramHelp": {
+     "x": "A numeric expression."
+    },
+    "jsDoc": "Returns the smallest number greater than or equal to its numeric argument.",
+    "_name": "ceil"
+   },
+   "pkg": null,
+   "retType": "number",
+   "parameters": [
+    {
+     "name": "x",
+     "description": "A numeric expression.",
+     "type": "number",
+     "options": {},
+     "isEnum": false
+    }
+   ],
+   "snippet": "ceil(0)",
+   "qName": "Math.ceil"
+  },
+  "Math.floor": {
+   "kind": 3,
+   "namespace": "Math",
+   "name": "floor",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "shim": "Math_::floor",
+    "paramHelp": {
+     "x": "A numeric expression."
+    },
+    "jsDoc": "Returns the greatest number less than or equal to its numeric argument.",
+    "_name": "floor"
+   },
+   "pkg": null,
+   "retType": "number",
+   "parameters": [
+    {
+     "name": "x",
+     "description": "A numeric expression.",
+     "type": "number",
+     "options": {},
+     "isEnum": false
+    }
+   ],
+   "snippet": "floor(0)",
+   "qName": "Math.floor"
+  },
+  "Math.trunc": {
+   "kind": 3,
+   "namespace": "Math",
+   "name": "trunc",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "shim": "Math_::trunc",
+    "paramHelp": {
+     "x": "A numeric expression."
+    },
+    "jsDoc": "Returns the number with the decimal part truncated.",
+    "_name": "trunc"
+   },
+   "pkg": null,
+   "retType": "number",
+   "parameters": [
+    {
+     "name": "x",
+     "description": "A numeric expression.",
+     "type": "number",
+     "options": {},
+     "isEnum": false
+    }
+   ],
+   "snippet": "trunc(0)",
+   "qName": "Math.trunc"
+  },
+  "Math.round": {
+   "kind": 3,
+   "namespace": "Math",
+   "name": "round",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "shim": "Math_::round",
+    "paramHelp": {
+     "x": "The value to be rounded to the nearest number."
+    },
+    "jsDoc": "Returns a supplied numeric expression rounded to the nearest number.",
+    "_name": "round"
+   },
+   "pkg": null,
+   "retType": "number",
+   "parameters": [
+    {
+     "name": "x",
+     "description": "The value to be rounded to the nearest number.",
+     "type": "number",
+     "options": {},
+     "isEnum": false
+    }
+   ],
+   "snippet": "round(0)",
+   "qName": "Math.round"
+  },
+  "Math.imul": {
+   "kind": 3,
+   "namespace": "Math",
+   "name": "imul",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "shim": "Math_::imul",
+    "paramHelp": {
+     "x": "The first number",
+     "y": "The second number"
+    },
+    "jsDoc": "Returns the value of integer signed 32 bit multiplication of two numbers.",
+    "_name": "imul"
+   },
+   "pkg": null,
+   "retType": "number",
+   "parameters": [
+    {
+     "name": "x",
+     "description": "The first number",
+     "type": "number",
+     "options": {},
+     "isEnum": false
+    },
+    {
+     "name": "y",
+     "description": "The second number",
+     "type": "number",
+     "options": {},
+     "isEnum": false
+    }
+   ],
+   "snippet": "imul(0, 0)",
+   "qName": "Math.imul"
+  },
+  "Math.idiv": {
+   "kind": 3,
+   "namespace": "Math",
+   "name": "idiv",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "shim": "Math_::idiv",
+    "paramHelp": {
+     "x": "The first number",
+     "y": "The second number"
+    },
+    "jsDoc": "Returns the value of integer signed 32 bit division of two numbers.",
+    "_name": "idiv"
+   },
+   "pkg": null,
+   "retType": "number",
+   "parameters": [
+    {
+     "name": "x",
+     "description": "The first number",
+     "type": "number",
+     "options": {},
+     "isEnum": false
+    },
+    {
+     "name": "y",
+     "description": "The second number",
+     "type": "number",
+     "options": {},
+     "isEnum": false
+    }
+   ],
+   "snippet": "idiv(0, 0)",
+   "qName": "Math.idiv"
+  },
   "helpers": {
    "kind": 5,
    "namespace": "",
@@ -1456,6 +1656,46 @@
    "snippet": "arrayReduce([], () => {}, null)",
    "qName": "helpers.arrayReduce"
   },
+  "helpers.arraySlice": {
+   "kind": 3,
+   "namespace": "helpers",
+   "name": "arraySlice",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "arraySlice"
+   },
+   "pkg": null,
+   "retType": "T[]",
+   "parameters": [
+    {
+     "name": "arr",
+     "description": "",
+     "type": "T[]",
+     "options": {},
+     "isEnum": false
+    },
+    {
+     "name": "start",
+     "description": "",
+     "type": "number",
+     "options": {},
+     "isEnum": false
+    },
+    {
+     "name": "end",
+     "description": "",
+     "type": "number",
+     "options": {},
+     "isEnum": false
+    }
+   ],
+   "snippet": "arraySlice([], 0, 0)",
+   "qName": "helpers.arraySlice"
+  },
   "Math.clamp": {
    "kind": 3,
    "namespace": "Math",
@@ -1507,7 +1747,7 @@
     "paramHelp": {
      "x": "A numeric expression for which the absolute value is needed."
     },
-    "jsDoc": "Returns the absolute value of a number (the value without regard to whether it is positive or negative). \nFor example, the absolute value of -5 is the same as the absolute value of 5.",
+    "jsDoc": "Returns the absolute value of a number (the value without regard to whether it is positive or negative).\nFor example, the absolute value of -5 is the same as the absolute value of 5.",
     "_name": "abs"
    },
    "pkg": null,
@@ -2076,6 +2316,1111 @@
    "retType": "Label",
    "parameters": null,
    "qName": "Label.L10"
+  },
+  "Memory": {
+   "kind": 6,
+   "namespace": "",
+   "name": "Memory",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "Memory"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory"
+  },
+  "Memory.M00": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M00",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M00"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M00"
+  },
+  "Memory.M04": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M04",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M04"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M04"
+  },
+  "Memory.M08": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M08",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M08"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M08"
+  },
+  "Memory.M0C": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M0C",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M0C"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M0C"
+  },
+  "Memory.M10": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M10",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M10"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M10"
+  },
+  "Memory.M14": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M14",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M14"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M14"
+  },
+  "Memory.M18": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M18",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M18"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M18"
+  },
+  "Memory.M1C": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M1C",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M1C"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M1C"
+  },
+  "Memory.M20": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M20",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M20"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M20"
+  },
+  "Memory.M24": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M24",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M24"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M24"
+  },
+  "Memory.M28": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M28",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M28"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M28"
+  },
+  "Memory.M2C": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M2C",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M2C"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M2C"
+  },
+  "Memory.M30": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M30",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M30"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M30"
+  },
+  "Memory.M34": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M34",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M34"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M34"
+  },
+  "Memory.M38": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M38",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M38"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M38"
+  },
+  "Memory.M3C": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M3C",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M3C"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M3C"
+  },
+  "Memory.M40": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M40",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M40"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M40"
+  },
+  "Memory.M44": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M44",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M44"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M44"
+  },
+  "Memory.M48": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M48",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M48"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M48"
+  },
+  "Memory.M4C": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M4C",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M4C"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M4C"
+  },
+  "Memory.M50": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M50",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M50"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M50"
+  },
+  "Memory.M54": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M54",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M54"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M54"
+  },
+  "Memory.M58": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M58",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M58"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M58"
+  },
+  "Memory.M5C": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M5C",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M5C"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M5C"
+  },
+  "Memory.M60": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M60",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M60"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M60"
+  },
+  "Memory.M64": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M64",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M64"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M64"
+  },
+  "Memory.M68": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M68",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M68"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M68"
+  },
+  "Memory.M6C": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M6C",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M6C"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M6C"
+  },
+  "Memory.M70": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M70",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M70"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M70"
+  },
+  "Memory.M74": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M74",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M74"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M74"
+  },
+  "Memory.M78": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M78",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M78"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M78"
+  },
+  "Memory.M7C": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M7C",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M7C"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M7C"
+  },
+  "Memory.M80": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M80",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M80"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M80"
+  },
+  "Memory.M84": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M84",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M84"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M84"
+  },
+  "Memory.M88": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M88",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M88"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M88"
+  },
+  "Memory.M8C": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M8C",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M8C"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M8C"
+  },
+  "Memory.M90": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M90",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M90"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M90"
+  },
+  "Memory.M94": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M94",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M94"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M94"
+  },
+  "Memory.M98": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M98",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M98"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M98"
+  },
+  "Memory.M9C": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "M9C",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "M9C"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.M9C"
+  },
+  "Memory.MA0": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MA0",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MA0"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MA0"
+  },
+  "Memory.MA4": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MA4",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MA4"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MA4"
+  },
+  "Memory.MA8": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MA8",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MA8"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MA8"
+  },
+  "Memory.MAC": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MAC",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MAC"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MAC"
+  },
+  "Memory.MB0": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MB0",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MB0"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MB0"
+  },
+  "Memory.MB4": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MB4",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MB4"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MB4"
+  },
+  "Memory.MB8": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MB8",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MB8"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MB8"
+  },
+  "Memory.MBC": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MBC",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MBC"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MBC"
+  },
+  "Memory.MC0": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MC0",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MC0"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MC0"
+  },
+  "Memory.MC4": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MC4",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MC4"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MC4"
+  },
+  "Memory.MC8": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MC8",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MC8"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MC8"
+  },
+  "Memory.MCC": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MCC",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MCC"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MCC"
+  },
+  "Memory.MD0": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MD0",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MD0"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MD0"
+  },
+  "Memory.MD4": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MD4",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MD4"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MD4"
+  },
+  "Memory.MD8": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MD8",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MD8"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MD8"
+  },
+  "Memory.MDC": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MDC",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MDC"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MDC"
+  },
+  "Memory.ME0": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "ME0",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "ME0"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.ME0"
+  },
+  "Memory.ME4": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "ME4",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "ME4"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.ME4"
+  },
+  "Memory.ME8": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "ME8",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "ME8"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.ME8"
+  },
+  "Memory.MEC": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MEC",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MEC"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MEC"
+  },
+  "Memory.MF0": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MF0",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MF0"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MF0"
+  },
+  "Memory.MF4": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MF4",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MF4"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MF4"
+  },
+  "Memory.MF8": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MF8",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MF8"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MF8"
+  },
+  "Memory.MFC": {
+   "kind": 7,
+   "namespace": "Memory",
+   "name": "MFC",
+   "attributes": {
+    "paramDefl": {},
+    "callingConvention": 0,
+    "_source": null,
+    "paramHelp": {},
+    "jsDoc": "",
+    "_name": "MFC"
+   },
+   "pkg": null,
+   "retType": "Memory",
+   "parameters": null,
+   "qName": "Memory.MFC"
   },
   "console": {
    "kind": 5,

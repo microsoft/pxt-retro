@@ -189,6 +189,7 @@ namespace pxsim.memory {
     export function str(Rd: Register, Rb: Register) {
         board().storeRegister(Rd, Rb)
     }
+
 }
 
 /**
