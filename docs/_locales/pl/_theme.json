@@ -1,0 +1,14 @@
+{
+    "name": "Przykład PXT",
+    "title": "Przykładowe Doświadczenie PXT",
+    "docMenu": [
+        {
+            "name": "O nas",
+            "path": "/about"
+        },
+        {
+            "name": "Dokumentacja",
+            "path": "/docs"
+        }
+    ]
+}

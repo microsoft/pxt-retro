@@ -1,0 +1,37 @@
+{
+  "blocksOnly": false,
+  "logoUrl": "https://retro.pxt.io/",
+  "homeUrl": "https://retro.pxt.io/",
+  "embedUrl": "https://retro.pxt.io/",
+  "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
+  "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
+  "docMenu": [
+    {
+      "name": "About",
+      "path": "/about"
+    },
+    {
+      "name": "Docs",
+      "path": "/docs"
+    }
+  ],
+  "monacoToolbox": true,
+  "invertedMenu": true,
+  "invertedToolbox": true,
+  "invertedMonaco": true,
+  "blocklyOptions": {
+    "grid": {
+      "spacing": 45,
+      "length": 7,
+      "colour": "rgba(40,181,0, 0.30)",
+      "snap": true
+    }
+  },
+  "simAnimationEnter": "rotate in",
+  "simAnimationExit": "rotate out",
+  "TOC": null,
+  "id": "retro",
+  "title": "Retro",
+  "name": "Retro",
+  "htmlDocIncludes": {}
+}

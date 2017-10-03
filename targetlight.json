@@ -1,0 +1,72 @@
+{
+  "id": "retro",
+  "name": "Retro",
+  "title": "Retro",
+  "corepkg": "core",
+  "cloud": {
+    "workspace": false,
+    "packages": false
+  },
+  "runtime": {
+    "mathBlocks": false,
+    "loopsBlocks": false,
+    "logicBlocks": false,
+    "variablesBlocks": false,
+    "textBlocks": false,
+    "listsBlocks": false,
+    "onStartColor": "#D83B01",
+    "onStartNamespace": "control",
+    "onStartWeight": 54
+  },
+  "simulator": {
+    "autoRun": true,
+    "aspectRatio": 1.2
+  },
+  "blocksprj": {
+    "id": "blocksprj",
+    "config": {
+      "name": "{0}",
+      "dependencies": {
+        "core": "*"
+      },
+      "description": "",
+      "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+      ]
+    },
+    "files": {
+      "main.blocks": "<xml xmlns=\"http://www.w3.org/1999/xhtml\">\n  <block type=\"pxt-on-start\" x=\"23\" y=\"23\">\n  </block>\n</xml>",
+      "main.ts": " ",
+      "README.md": " "
+    }
+  },
+  "tsprj": {
+    "id": "tsprj",
+    "config": {
+      "name": "{0}",
+      "dependencies": {
+        "core": "*"
+      },
+      "description": "",
+      "files": [
+        "main.ts",
+        "README.md"
+      ]
+    },
+    "files": {
+      "main.ts": " ",
+      "README.md": " "
+    }
+  },
+  "compile": {
+    "isNative": false,
+    "hasHex": false,
+    "floatingPoint": true
+  },
+  "versions": {
+    "target": "0.1.10",
+    "pxt": "2.1.5"
+  }
+}

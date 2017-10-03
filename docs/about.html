@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Retro - Retro</title>
+    <meta name="Description" content="Retro is a Microsoft MakeCode editor/simulator for a small subset of the 
+ARM Thumb instruction set. You can code small assembly language programs
+using the Blockly editor and run them in a simulator providing eight
+32-bit registers (R0 through R7) and 64 32-bit words of memory. " />
+
+    
+<!-- include meta.html -->
+<!-- This file is typically overriden by the target, with own Twitter
+     account etc. Most data is taken from the theme file though.  
+  -->
+
+<!-- include robotsmeta.html -->
+
+<!-- end include robotsmeta.html -->
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msmakecode" />
+<meta name="twitter:title" content="Retro - Retro" />
+<meta name="twitter:description" content="Retro is a Microsoft MakeCode editor/simulator for a small subset of the 
+ARM Thumb instruction set. You can code small assembly language programs
+using the Blockly editor and run them in a simulator providing eight
+32-bit registers (R0 through R7) and 64 32-bit words of memory. " />
+<meta name="twitter:image" content="" />
+
+<meta property="og:title" content="Retro - Retro" />
+<meta property="og:site_name" content="Microsoft MakeCode" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Retro is a Microsoft MakeCode editor/simulator for a small subset of the 
+ARM Thumb instruction set. You can code small assembly language programs
+using the Blockly editor and run them in a simulator providing eight
+32-bit registers (R0 through R7) and 64 32-bit words of memory. " />
+<meta property="fb:app_id" content="" />
+<meta property="og:image" content="" />
+
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="">
+<link rel="icon" type="image/png" href="">
+<link rel="shortcut icon" href="">
+<meta name="theme-color" content="">
+
+<!-- end include meta.html -->
+
+    
+<!-- include head.html -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+
+<link rel="stylesheet" href="/pxt-retro/semantic.css" />
+<link rel="stylesheet" href="/pxt-retro/blockly.css" />
+<link rel="stylesheet" href="/pxt-retro/docfiles/style.css" />
+<link rel="stylesheet" href="/pxt-retro/docfiles/vs.css" />
+<link rel="stylesheet" href="/pxt-retro/docfiles/target.css" />
+
+<script src="/pxt-retro/jquery.js"></script>
+
+<script src="/pxt-retro/embed.js" type="text/javascript"></script>
+<script src="/pxt-retro/docfiles/docs.js" type="text/javascript"></script>
+<script src="/pxt-retro/docfiles/target.js" type="text/javascript"></script>
+
+<style>
+    
+</style>
+
+<!-- end include head.html -->
+
+
+</head>
+
+<body id='root' class='root'>
+
+<div id="accessibleMenu" role="menubar">
+    
+            <a href="#maincontent" class="ui item link" tabindex="0" role="menuitem">Skip to main content</a>
+        
+</div>
+
+
+<!-- include tocheader.html -->
+<div class="ui vertical accent inverted sidebar menu left hideprint">
+    <div class="item">
+        <a href="/pxt-retro/docs/.html" class="header focused" tabindex="0" title="Go to editor">
+            
+        </a>
+        &nbsp; &nbsp;
+        Documentation
+    </div>
+    <div class="item">
+        <form id="tocsearch1" role="form" method="get" action="https://www.bing.com/search">
+            <div class="ui fluid icon input">
+                <input type="hidden" name="q1" value="site:https://retro.pxt.io/" />
+                
+                <input type="search" name="q" placeholder="Search..." aria-label="Search Documentation">
+                <i onclick="document.getElementById('tocsearch1').submit();" tabindex="0" class="search link icon" aria-label="Search" role="button"></i>
+            
+            </div>
+        </form>
+    </div>
+    <!-- TOC Menu -->
+    <div class="menuContainer">
+        
+    </div>
+    <a href="/pxt-retro/docs/.html" class="header item bottom">
+        Published by Microsoft
+    </a>
+</div>
+
+<div class="ui fixed accent borderless inverted main menu hideprint">
+  <div class="ui container">
+    
+            <a id="togglesidebar" class="launch icon item" tabindex="0" title="Side menu" aria-label="Side menu" role="menu" aria-expanded="false">
+                <i class="content icon"></i>
+            </a>
+        
+
+    <div class="item">
+        
+    </div>
+    
+    <div class="right menu">
+        <a href="/pxt-retro/docs/.html" class="header item" tabindex="0" title="Go to editor">
+            
+        </a>
+    </div>
+  </div>
+</div>
+<!-- end include tocheader.html -->
+
+
+<div class="pusher">
+
+<div class="full height">
+
+    
+<!-- include toc.html -->
+<div class="toc ui accent inverted hideprint">
+    <div class="ui vertical accent inverted sticky menu tocmenu">
+        <div class="item">
+            <a href="/pxt-retro/docs/.html" class="header focused" tabindex="0" title="Go to editor">
+                
+            </a>
+            &nbsp; &nbsp;
+            Documentation
+        </div>
+        <div class="item">
+            <form id="tocsearch2" role="form" method="get" target="_blank" action="https://www.bing.com/search">
+                <div class="ui fluid icon input">
+                    <input type="hidden" name="q1" value="site:https://retro.pxt.io/" />
+                    
+                <input type="search" name="q" placeholder="Search..." aria-label="Search Documentation">
+                <i onclick="document.getElementById('tocsearch2').submit();" tabindex="0" class="search link icon" aria-label="Search" role="button"></i>
+            
+                </div>
+            </form>
+        </div>
+        <!-- TOC Menu -->
+        <div class="menuContainer">
+            
+        </div>
+        <a href="/pxt-retro/docs/.html" class="header item bottom">
+            Published by Microsoft
+        </a>
+    </div>
+</div>
+<!-- end include toc.html -->
+
+    
+    <div class="article" id="maincontent">
+        
+        
+<!-- include header.html -->
+<div class="ui secondary borderless menu hideprint">
+    <div class="ui item"> 
+        
+    </div>
+</div>
+
+<!-- end include header.html -->
+
+
+        <div id="docs" class="main ui container mainbody">
+            
+            <button id="printbtn" class="circular ui icon right floated button hideprint" title="Print this page">
+                <i class="icon print"></i>
+            </button>
+        
+            
+    <div class="ui text">
+        <h1 id="about-retro">About Retro</h1><p>Retro is a Microsoft MakeCode editor/simulator for a small subset of the 
+ARM Thumb instruction set. You can code small assembly language programs
+using the Blockly editor and run them in a simulator providing eight
+32-bit registers (R0 through R7) and 64 32-bit words of memory. </p>
+<p>Retro supports word-level store and load instructions, so 
+memory addresses must be multiples of 4, with minimal value 0 and maximal
+value 252. Retro allows you to view values in decimal or hexadecimal
+and to the change the state of registers and memory when the simulator
+is not running. </p>
+<h1 id="on-start-block">on start block</h1><p>The simulator only executes the instructions nestedd inside the “on start”
+block, which can be found in the “Control” category.</p>
+<h1 id="arithmetic">Arithmetic</h1><p>Retro supports MOV, ADD and SUB instructions, as shown below:</p>
+<pre><code class="lang-blocks">arithmetic.movsImm(Register.R0, 2)
+arithmetic.addImm(Register.R1, 16)
+arithmetic.subImm(Register.R1, 1)
+arithmetic.add(Register.R2, Register.R0, Register.R1)
+arithmetic.sub(Register.R3, Register.R2, Register.R0)</code></pre>
+<p>In the first three instructions above, the decimal value must be in the range
+0-255.  The register (d) is the destination register, which is updated
+by the instruction execution.  For the second
+and third instructions, register (d) also is an input to the ADD/SUB operation.
+So, the second instruction above increases the value in register R1 by decimal
+value 16.
+For the fourth and fifth instructions,  registers (s) and (n) are the inputs
+to the ADD/SUB operation.  For example, the fourth instruction adds the values
+in registers R0 and R1 and assigns the result to register R2. </p>
+<h1 id="shift">Shift</h1><p>Retro supports logical shift left (LSL) and logical shift right (LSR), as shown below:</p>
+<pre><code class="lang-blocks">arithmetic.movsImm(Register.R0, 15)
+shift.lsl(Register.R1, Register.R0, 8)
+shift.lsr(Register.R2, Register.R1, 4)</code></pre>
+<p>In the shift instructions, the shift constant (V) must be in the range 0-31.  The value in
+register (s) is shifted left/right by V bits. The
+result of the shift operation is assigned to register (d), as usual.</p>
+<p>Here’s a short program for putting a 32-bit constant into register R0 using
+a combination of MOV, ADD and LSL instructions:</p>
+<pre><code class="lang-blocks">arithmetic.movsImm(Register.R0, 0xDE)
+shift.lsl(Register.R0, Register.R0, 8)
+arithmetic.addImm(Register.R0, 0xAD)
+shift.lsl(Register.R0, Register.R0, 8)
+arithmetic.addImm(Register.R0, 0xBE)
+shift.lsl(Register.R0, Register.R0, 8)
+arithmetic.addImm(Register.R0, 0xEF)</code></pre>
+<h1 id="load-and-store">Load and store</h1><p>Retro supports word-level load and store instructions. 
+Here’s a simple program that increments value in the 
+second word of memory (at address 4) by the quantity 3:</p>
+<pre><code class="lang-blocks">arithmetic.movsImm(Register.R0, 4)
+memory.ldr(Register.R1, Register.R0)
+arithmetic.addImm(Register.R1, 3)
+memory.str(Register.R1, Register.R0)</code></pre>
+<p>The address in the base register (b) of the LDR or STR
+instruction must be a multiple of four and between the values 
+of 0 and 252.</p>
+<h1 id="control-flow">Control flow</h1><p>Retro supports CMP and conditional branch instructions
+(BEQ, BNE, BLT, BGT, BLE, BGE), and ten predefined
+labels.  Here’s a program to increment all memory 
+locations by 3:</p>
+<pre><code class="lang-blocks">arithmetic.subImm(Register.R2, 4)
+arithmetic.movsImm(Register.R0, 252)
+control.label(Label.L1)
+memory.ldr(Register.R1, Register.R0)
+arithmetic.addImm(Register.R1, 3)
+memory.str(Register.R1, Register.R0)
+arithmetic.subImm(Register.R0, 4)
+control.cmp(Register.R0, Register.R2)
+control.beq(Condition.NE, Label.L1)</code></pre>
+<p>It is an error to use the same label twice
+in a program or to branch to a label that is not in
+the program.</p>
+<p>See <a href="https://github.com/Microsoft/pxt-retro">GitHub repo</a> for details.</p>
+
+    </div>
+
+            <div class="hideprint"></div>
+        </div>
+
+        <div class="hideprint">
+            
+            
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+<!-- include footer.html -->
+    <footer class="ui inverted accent vertical footer segment hideprint" aria-hidden="false">
+        <div class="ui center aligned container">
+            <div class="ui horizontal inverted small divided link list">
+                <a class="item" href="https://makecode.com/" title="Microsoft MakeCode" target="_blank" rel="noopener">Powered by Microsoft MakeCode</a>
+                <!-- <a class="item" href="https://makecode.com/contact" target="_blank" rel="noopener">Contact Us</a> -->
+                <a class="item" href="https://makecode.com/privacy" target="_blank" rel="noopener">Privacy &amp; Cookies</a>
+                <a class="item" href="https://makecode.com/termsofuse" target="_blank" rel="noopener"> Terms Of Use</a>
+                <a class="item" href="https://makecode.com/trademarks" target="_blank" rel="noopener">Trademarks</a>
+                <div class="item">© 2017 Microsoft</div>
+                <!-- we need to force the browser to load this font -->
+                <div style='font-family: Icons; color: #010101;' aria-hidden="true">.</div>
+            </div>
+            <a class="item" href="https://www.microsoft.com/" target="_blank" rel="noopener" aria-label="Microsoft Home Page">
+                <img class="ui centered image" src="https://az851932.vo.msecnd.net/pub/pmapoirq">
+            </a>
+        </div>
+    </footer>
+<!-- end include footer.html -->
+
+
+
+<!-- include macros.html -->
+<!-- macro button -->
+
+<!-- macro vimeo -->
+
+<!-- macro youtube -->
+
+<!-- macro section -->
+
+<!-- macro hide -->
+
+<!-- macro avatar -->
+
+<!-- macro hint -->
+
+<!-- wrapped around ordinary content -->
+<!-- macro main-container -->
+
+<!-- used for 'column' box - they are collected and wrapped in 'column-container' -->
+<!-- macro column -->
+<!-- macro column-container -->
+
+
+<!-- Menu on the top of the page -->
+<!-- macro item -->
+
+<!-- macro divider -->
+
+<!-- macro top-dropdown -->
+
+<!-- macro inner-dropdown -->
+
+
+<!-- TOC in the sidebar -->
+<!-- macro item -->
+
+<!-- macro divider -->
+
+<!-- macro top-dropdown -->
+
+<!-- macro top-dropdown-noheading -->
+
+<!-- macro inner-dropdown -->
+
+<!-- macro nested-dropdown -->
+
+<!-- end include macros.html -->
+
+
+<!-- include tracking.html -->
+<script type="text/javascript">
+    var appInsights=window.appInsights||function(config){
+        function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
+    }({    
+        instrumentationKey:"9801ed01-c40f-46ec-aa40-2a1742a9e71c",
+        disableAjaxTracking: true,
+        overridePageViewDuration: false,
+        disableExceptionTracking: true,
+        isCookieUseDisabled: true,
+        isStorageUseDisabled: true
+    });
+    window.appInsights=appInsights;
+    appInsights.queue.push(function () {
+        appInsights.context.addTelemetryInitializer(function (envelope) {
+            if (typeof pxtConfig === "undefined") return;            
+            var telemetryItem = envelope.data.baseData;
+            telemetryItem.properties = telemetryItem.properties || {};
+            telemetryItem.properties["target"] = pxtConfig.targetId;
+            telemetryItem.properties["version"] = pxtConfig.targetVersion; 
+            telemetryItem.properties["stage"] = (pxtConfig.relprefix || "/--").replace(/[^a-z]/ig, '')
+            if (typeof window !== "undefined" && window.location && /[?&]electron=1/i.test(window.location.href))
+                telemetryItem.properties["electron"] = 1;
+            if (typeof Windows !== "undefined")
+                telemetryItem.properties["WindowsApp"] = 1;
+        });
+    });
+    appInsights.trackPageView(null, null, {urlReferrer: document.referrer});
+</script>
+
+<!-- end include tracking.html -->
+
+
+</body>
+
+</html>

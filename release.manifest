@@ -1,0 +1,61 @@
+CACHE MANIFEST
+
+CACHE:
+/pxt-retro/semantic.js
+/pxt-retro/main.js
+/pxt-retro/typescript.js
+/pxt-retro/marked/marked.min.js
+/pxt-retro/highlight.js/highlight.pack.js
+/pxt-retro/lzma/lzma_worker-min.js
+/pxt-retro/fuse.min.js
+/pxt-retro/jquery.js
+/pxt-retro/pxtlib.js
+/pxt-retro/pxtcompiler.js
+/pxt-retro/pxtblocks.js
+/pxt-retro/pxtwinrt.js
+/pxt-retro/pxteditor.js
+/pxt-retro/pxtsim.js
+/pxt-retro/blockly.css
+/pxt-retro/semantic.css
+/pxt-retro/rtlsemantic.css
+/pxt-retro/custom.css
+/pxt-retro/icons.css
+
+
+
+
+# blockly
+/pxt-retro/blockly/blockly_compressed.js
+/pxt-retro/blockly/blocks_compressed.js
+/pxt-retro/blockly/msg/js/en.js
+/pxt-retro/blockly/media/sprites.png
+/pxt-retro/blockly/media/click.mp3
+/pxt-retro/blockly/media/disconnect.wav
+/pxt-retro/blockly/media/delete.mp3
+
+# monaco; keep in sync with webapp/public/index.html
+/pxt-retro/vs/loader.js
+/pxt-retro/vs/base/worker/workerMain.js
+/pxt-retro/vs/basic-languages/src/bat.js
+/pxt-retro/vs/basic-languages/src/cpp.js
+/pxt-retro/vs/editor/editor.main.css
+/pxt-retro/vs/editor/editor.main.js
+/pxt-retro/vs/editor/editor.main.nls.js
+/pxt-retro/vs/language/json/jsonMode.js
+/pxt-retro/vs/language/json/jsonWorker.js
+/pxt-retro/vs/language/typescript/lib/typescriptServices.js
+/pxt-retro/vs/language/typescript/src/mode.js
+/pxt-retro/vs/language/typescript/src/worker.js
+
+# ai
+https://az416426.vo.msecnd.net/scripts/a/ai.0.js
+
+/pxt-retro/worker.js
+/pxt-retro/monacoworker.js
+
+# ver Mon Oct 02 2017 21:54:43 GMT-0700 (Pacific Daylight Time)
+
+/pxt-retro/target.js
+  
+NETWORK:
+*
